@@ -1,5 +1,5 @@
 /**
-* Scrivere qui il codice dell'esercizio 1 del capitolo 4 di eloquentJS.
+* 1) Scrivere qui il codice dell'esercizio 1 del capitolo 4 di eloquentJS.
 ----------------------------------------------------------------------
 Svolgere nel file `range.js` l'esercizio "Sum of a Range".
 La generazione del range deve avvenire utilizzando la funzione `Array.from` prevedendo anche la possibilità di generare range con step diversi.
@@ -16,3 +16,15 @@ La funzione `range` che genererà l'array deve essere scritta in due versioni:
   ritorna un array di numeri pari precedentemente moltiplicati per 2.
   Utilizzare lo stesso metodo per concatenare la funzione range con la reduce che applica la somma al range
 **/
+
+const range1 = (start, stop, step = 1) => Array.from({ length: Math.floor((stop - start) / step + 1) }, (x, i) => start + (step * i))
+const sum1 = (arr) => arr.reduce((acc, cur) => acc + cur)
+console.log('range1 call returns:', range1(10, 0, -2)) //[ 10, 8, 6, 4, 2, 0 ]
+console.log('sum1 call returns:', sum1(range1(10, 0, -2))) //[ 10, 8, 6, 4, 2, 0 ]
+
+const range2 = ({ start, stop, step = 1 } = {}) => Array.from({ length: Math.floor((stop - start) / step + 1) }, (x, i) => start + (step * i))
+const sum2 = (arr) => arr.reduce((acc, cur) => acc + cur)
+console.log('range2 call returns:', range2({ start: 10, stop: 0, step: -2 })) //[ 10, 8, 6, 4, 2, 0 ]
+console.log('sum2 call returns:', sum2(range1(10, 0, -2))) //[ 10, 8, 6, 4, 2, 0 ]
+
+
