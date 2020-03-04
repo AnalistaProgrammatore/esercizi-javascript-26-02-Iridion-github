@@ -38,3 +38,17 @@ const filterReduce = (oldArr, testFunc) => {
 }
 
 console.log('filterReduce call returns:', filterReduce([1, 2, 3, 4, 5], x => x !== 4)) //[1,2,3,5]
+
+//Simpler Version, dopo averci dormito sopra. Era MOLTO piú semplice senza ricorsione, che cazzo avevo in mente ieri?
+const filterReduceLoop = (arr, filterFunc) => {
+   let result = []
+   for (let x = 0; x < arr.length; x++) {
+      if (filterFunc(arr[x])) result.push(arr[x])
+   }
+   return result
+}
+
+console.log('filterReduceLoop call returns:', filterReduce([1, 2, 3, 4, 5], x => x !== 4)) //[1,2,3,5]
+
+
+
