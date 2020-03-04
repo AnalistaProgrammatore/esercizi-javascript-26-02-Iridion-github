@@ -43,7 +43,7 @@ console.log('filterReduce call returns:', filterReduce([1, 2, 3, 4, 5], x => x !
 const filterReduceLoop = (arr, filterFunc) => {
    let result = []
    for (let x = 0; x < arr.length; x++) {
-      if (filterFunc(arr[x])) result.push(arr[x])
+      result = filterFunc(arr[x]) ? [...result, arr[x]] : result
    }
    return result
 }
